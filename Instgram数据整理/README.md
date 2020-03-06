@@ -2,7 +2,7 @@
 
 - 任务描述: 
     - 详细任务见文档`需求文档csv.pdf`
-    - 设计 NLP CV等多项操作，主要是接口的调用
+    - 原数据中含有图像链接和文本，来源instgram用户评论，涉及 NLP/CV等多项操作，主要是接口的调用
     - 原始数据sample
     ![](https://tva1.sinaimg.cn/large/00831rSTgy1gckgtqj1aoj31ge0u0asd.jpg)
 
@@ -12,7 +12,7 @@
     1. 第一阶段
         - “Text”中是否含有网址/电话/stopwords 正则（注意网址正则方式）
         - 重复: df.Series.duplicated
-        - 主导rgb值: `get_dominant_color`函数
+        - 主导rgb值: 图像数据量约1w，采取本地下载方式，使用`get_dominant_color`函数进行RGB分析
     
     2. 第二阶段
         - Emoji提取`re.compile('[\U00010000-\U0010ffff]')`

@@ -10,7 +10,7 @@
     - [东方财富评论](https://github.com/isbada/project_main/tree/master/%E7%88%AC%E4%B8%9C%E6%96%B9%E8%B4%A2%E5%AF%8C%E8%AF%84%E8%AE%BA)
 
 - 数据处理
-    - [instgram数据处理](??)
+    - [instgram数据整理](https://github.com/isbada/project_main/tree/master/Instgram%E6%95%B0%E6%8D%AE%E6%95%B4%E7%90%86)
 
 - 模型构建
     - [kaggle-地震预测](https://github.com/isbada/project_main/tree/master/kaggle-%E5%9C%B0%E9%9C%87%E9%A2%84%E6%B5%8B)

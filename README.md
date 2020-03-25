@@ -16,7 +16,7 @@
     - [kaggle-地震预测](https://github.com/isbada/project_main/tree/master/kaggle-%E5%9C%B0%E9%9C%87%E9%A2%84%E6%B5%8B)
     - [kaggle-PS图像识别](https://github.com/isbada/project_main/tree/master/kaggle-PS%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB)
     - [kaggle-IMDB情感分析](https://github.com/isbada/project_main/tree/master/kaggle-IMDB%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90)
-    - [零件异常预测模型](https://github.com/isbada/project_main/tree/master/LSTM%E9%9B%B6%E4%BB%B6%E5%BC%82%E5%B8%B8%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B)
+    - [零件异常预测模型](https://github.com/isbada/project_main/tree/master/%E9%9B%B6%E4%BB%B6%E5%BC%82%E5%B8%B8%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B)
     - [Subset of CIFAR-10 多标签图像分类](https://github.com/isbada/project_main/tree/master/Subset%20of%20CIFAR-10%20%E5%A4%9A%E6%A0%87%E7%AD%BE%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB)
 
 

@@ -1,0 +1,561 @@
+<!DOCTYPE　html>
+<!-- <html lang='en'> -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script src="./jquery.min.js"></script>
+    <script src="./index.js"></script>
+    <!-- <meta charset='GB2312'> -->
+    <title>彩票计算页面</title>
+    <style>
+        h1.title{
+            text-align: center;
+        }
+        .select-button-wrapper{
+            text-align: center;
+        }
+        li{
+            display: inline-block;
+        }
+        .five, .six{
+            display: inline-block;
+        }
+        .six{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">彩票计算</h1>
+    
+    <hr>
+    <h3>筛选规则</h3>
+    <div>
+        类型 
+        <input checked='true' name='fx_radio' value='5dl' type='radio'>任5
+        <input name='fx_radio' value='6dl' type='radio'>任6
+        <br>
+        <input id='duolu' name='sx' value='dl' type='checkbox'>多路筛选 
+        <div class="five">
+            <input name='dl_radio' value='122dl' type='radio'>122
+            <input name='dl_radio' value='212dl' type='radio'>212
+            <input name='dl_radio' value='221dl' type='radio'>221
+            <input name='dl_radio' value='311dl' type='radio'>311
+            <input name='dl_radio' value='131dl' type='radio'>131
+            <input name='dl_radio' value='113dl' type='radio'>113
+            <input name='dl_radio' value='230dl' type='radio'>230
+            <input name='dl_radio' value='203dl' type='radio'>203
+            <input name='dl_radio' value='023dl' type='radio'>023
+            <input name='dl_radio' value='032dl' type='radio'>032
+            <input name='dl_radio' value='302dl' type='radio'>302
+            <input name='dl_radio' value='320dl' type='radio'>320
+        </div>
+        <div class="six">
+            <input name='dl_radio' value='123dl' type='radio'> 123
+            <input name='dl_radio' value='132dl' type='radio'> 132
+            <input name='dl_radio' value='213dl' type='radio'> 213
+            <input name='dl_radio' value='231dl' type='radio'> 231
+            <input name='dl_radio' value='312dl' type='radio'> 312
+            <input name='dl_radio' value='321dl' type='radio'>321
+            <input name='dl_radio' value='330dl' type='radio'>330
+            <input name='dl_radio' value='303dl' type='radio'> 303
+            <input name='dl_radio' value='033dl' type='radio'>033
+            <input name='dl_radio' value='222dl' type='radio'>222
+        </div>
+
+<br>
+        <input id='oddEven' name='sx' value='jo' type='checkbox'>奇偶性筛选 
+        <div class="five">
+            <input name='jo_radio' value='32jo' type='radio' autocomplete='off' >3奇2偶
+            <input name='jo_radio' value='23jo' type='radio' autocomplete='off' >2奇3偶
+            <input name='jo_radio' value='14jo' type='radio' autocomplete='off' >1奇4偶
+            <input name='jo_radio' value='41jo' type='radio' autocomplete='off' >4奇1偶
+            <input name='jo_radio' value='50jo' type='radio' autocomplete='off' >5奇0偶
+            <input name='jo_radio' value='05jo' type='radio' autocomplete='off' >0奇5偶
+        </div>
+        <div class="six">
+            <input name='jo_radio' value='33jo' type='radio' autocomplete='off' >3奇3偶
+            <input name='jo_radio' value='24jo' type='radio' autocomplete='off' >2奇4偶
+            <input name='jo_radio' value='42jo' type='radio' autocomplete='off' >4奇2偶
+            <input name='jo_radio' value='15jo' type='radio' autocomplete='off' >1奇5偶
+            <input name='jo_radio' value='51jo' type='radio' autocomplete='off' >5奇1偶
+            <input name='jo_radio' value='06jo' type='radio' autocomplete='off' >0奇6偶
+            <input name='jo_radio' value='60jo' type='radio' autocomplete='off' >6奇0偶
+        </div>
+            <!-- <input name='jo_radio' value='2-3jo' type='radio' autocomplete='off' >2-3奇 -->
+        <br>
+
+        <input id='bigSmall' name='sx' value='dx' type='checkbox'>大小数筛选
+        <div class='five'>
+            <input name='dx_radio' value='32dx' type='radio' autocomplete='off'>3大2小
+            <input name='dx_radio' value='23dx' type='radio' autocomplete='off'>2大3小
+            <input name='dx_radio' value='14dx' type='radio' autocomplete='off'>1大4小
+            <input name='dx_radio' value='41dx' type='radio' autocomplete='off'>4大1小
+            <input name='dx_radio' value='50dx' type='radio' autocomplete='off'>5大0小
+            <input name='dx_radio' value='05dx' type='radio' autocomplete='off'>0大5小
+        </div>
+        <div class="six">
+            <input name='dx_radio' value='33dx' type='radio' autocomplete='off'>3大3小
+            <input name='dx_radio' value='24dx' type='radio' autocomplete='off'>2大4小
+            <input name='dx_radio' value='42dx' type='radio' autocomplete='off'>4大2小
+            <input name='dx_radio' value='15dx' type='radio' autocomplete='off'>1大5小
+            <input name='dx_radio' value='51dx' type='radio' autocomplete='off'>5大1小
+            <input name='dx_radio' value='06dx' type='radio' autocomplete='off'>0大6小
+            <input name='dx_radio' value='60dx' type='radio' autocomplete='off'>6大0小
+        </div>
+            
+            <!-- <input name='dx_radio' value='2-3dx' type='radio' autocomplete='off'>2-3大 -->
+        <br>
+
+
+        <input id='zhihe' name='sx' value='zh' type='checkbox'>质合数筛选 
+        <div class="five">
+            <input name='zh_radio' value='32zh' type='radio' autocomplete='off'>3质2合
+            <input name='zh_radio' value='23zh' type='radio' autocomplete='off'>2质3合
+            <input name='zh_radio' value='14zh' type='radio' autocomplete='off'>1质4合
+            <input name='zh_radio' value='41zh' type='radio' autocomplete='off'>4质1合
+            <input name='zh_radio' value='50zh' type='radio' autocomplete='off'>5质0合
+            <input name='zh_radio' value='05zh' type='radio' autocomplete='off'>0质5合
+        </div>
+        <div class="six">
+            <input name='zh_radio' value='33zh' type='radio' autocomplete='off'>3质3合
+            <input name='zh_radio' value='24zh' type='radio' autocomplete='off'>2质4合
+            <input name='zh_radio' value='42zh' type='radio' autocomplete='off'>4质2合
+            <input name='zh_radio' value='15zh' type='radio' autocomplete='off'>1质5合
+            <input name='zh_radio' value='51zh' type='radio' autocomplete='off'>5质1合
+            <input name='zh_radio' value='06zh' type='radio' autocomplete='off'>0质6合
+            <input name='zh_radio' value='60zh' type='radio' autocomplete='off'>6质0合
+        </div>
+            
+            <!-- <input name='zh_radio' value='2-3zh' type='radio' autocomplete='off'>2-3质 -->
+        <br>
+
+
+        <!-- <input autocomplete='off' name='sx' value='xl' type='checkbox' onclick=getSXTJ(this)>数字相连筛选 <br> -->
+
+        <input id='duichong' name='sx' value='dc' type='checkbox'>对冲筛选
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            数字1：<input id='dc1' autocomplete='off'  placeholder='请输入对冲值'>
+            数字2：<input id='dc2' autocomplete='off'  placeholder='请输入对冲值'>
+
+        <!-- add1 必有数字选项-->
+        <br>
+        <input id='hasNumber' name='sx' value='by' type='checkbox'>必有数字筛选
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        必有数字：<input id='bysz' autocomplete='off'  placeholder='请输入必有数字'>
+
+        <!-- add1 必无数字选项-->
+        <br>
+        <input id='hasNotNumber' autocomplete='off' name='sx' value='bw' type='checkbox'>必无数字筛选
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        必无数字：<input id='bwsz' autocomplete='off'  placeholder='请输入必无数字'>
+
+        <!-- add1 加和数字选项-->
+        <br>
+        <!-- <input autocomplete='off' name='sx' value='jh' type='checkbox' onclick=getSXTJ(this)>加和数字筛选 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        加起来的和等于数字：<input id='jhsz' autocomplete='off' disabled=true value='请输入和值' onblur=jhBlur(this) onfocus=dcFocus(this)> -->
+
+        <br><br>
+        <!-- <input type='button'  id="btn" value='执行筛选' onclick="console.log(sxtj)"> -->
+        <div class="select-button-wrapper">
+            <input id='filterbtn' type='button'  id="btn" value='执行筛选'>
+        </div>
+            
+        
+        
+    </div>
+    <!-- <input id='duolu' name='sx' value='dl' type='checkbox'>多路筛选  -->
+    <hr>
+    <h3>剩余数字</h3>
+    <ul id='allNum'></ul>
+    <hr>
+
+    <script type="text/javascript">
+        
+        
+
+        // var arrayS=['01','02','03','04','05','06','07','08','09','10','11'];
+        // function C(arr,num) {
+        //     var r=[];
+        //     (function f(t,a,n){
+        //         if(n==0){
+        //             return r.push(t);
+        //         }
+        //         for (var i = 0,l=a.length; i<=l-n;i++) {
+        //             f(t.concat(a[i]),a.slice(i+1),n-1);
+        //         }
+        //     })([],arr,num);
+        //     return r;
+        // }
+        
+
+        // // var numArr=C(arrayS,5);//存储了所有可能的组合
+        // var sxtj={};//存储筛选条件的字典
+        // // 显示所有的num
+        // // console.log('begin......')
+        // // console.log(numArr)
+        // // for (i in numArr) {
+        // //  document.getElementById('allNum').innerHTML+=numArr[i].join('-')+"<br>"
+        // // };
+        // // console.log('end......')
+
+        
+
+        // //多选框的函数设置
+        // function getSXTJ (obj) {
+        //     thisV=obj.value;
+        //     if(!(thisV in sxtj)){
+        //         console.log('选择一个多选按钮');
+        //         //---------------------------选择一个多选按钮
+        //         sxtj[thisV]=null;
+        //         // 数字相连情况
+        //         if(thisV=='xl'){sxtj[thisV]=true;}
+        //         //处理对冲情况
+        //         else if(thisV=='dc')
+        //             {document.getElementById('dc1').disabled=false;
+        //             document.getElementById('dc2').disabled=false;}
+        //         //处理必有必无数字
+        //         else if(thisV=='by')
+        //             {document.getElementById('bysz').disabled=false;}
+        //         else if(thisV=='bw')
+        //             {document.getElementById('bwsz').disabled=false;}
+        //         //处理必有加和数字
+        //         else if(thisV=='jh')
+        //             {document.getElementById('jhsz').disabled=false;}
+        //         //单选按钮筛选
+        //         else{
+        //             var thisR=document.getElementsByName(obj.value+"_radio");
+        //             for(var i in thisR){
+        //                 thisR[i].disabled=false;
+        //                 if(thisR[i].checked){sxtj[thisV]=thisR[i].value;}
+        //             }
+        //         }
+                
+        //     }
+        //     else {
+        //         console.log('取消一个多选按钮');
+        //         //---------------------------取消一个多选按钮
+        //         delete sxtj[thisV];
+        //         //对冲情况输入框禁用
+        //         if(thisV=='dc'){
+        //             document.getElementById('dc1').value='请输入对冲值';
+        //             document.getElementById('dc2').value='请输入对冲值';
+        //             document.getElementById('dc1').disabled=true;
+        //             document.getElementById('dc2').disabled=true;
+        //         }
+        //         //必有必无数字输入框禁用
+        //         else if(thisV=='by'){
+        //             document.getElementById('bysz').value='请输入必有数字';
+        //             document.getElementById('bysz').disabled=true;
+        //         }
+        //         else if(thisV=='bw'){
+        //             document.getElementById('bwsz').value='请输入必无数字';
+        //             document.getElementById('bwsz').disabled=true;
+        //         }
+        //         //加和数字输入框禁用
+        //         else if(thisV=='jh'){
+        //             document.getElementById('jhsz').value='请输入和值';
+        //             document.getElementById('jhsz').disabled=true;
+        //         }
+        //         // 数字相连情况不处理
+        //         else if(thisV=='xl'){}
+        //         //单选按钮设置禁用
+        //         else{
+        //             var thisR=document.getElementsByName(obj.value+"_radio");
+        //             for(var i in thisR){thisR[i].disabled=true;}
+        //         }
+                
+        //     }
+        //     console.log(sxtj);
+        // }
+
+        // //单选框的函数设置
+        // function changeSXTJ(value) {
+        //     var sx_type=value.slice(-2);
+        //     sxtj[sx_type]=value;
+        //     console.log('更新了筛选值。。。。。');
+        //     console.log(sxtj);
+        // }
+
+
+        // //对冲数字设置blur 和focus 
+        // function dcBlur(dom){
+        //     if(sxtj['dc']==null){ sxtj['dc']={}; }  
+        //     if(dom.id=='dc1'){sxtj['dc']['num1']=dom.value;}
+        //     else if(dom.id=='dc2'){sxtj['dc']['num2']=dom.value;}
+        //     // console.log(sxtj);
+        // }
+        // function dcFocus(dom) {
+        //     dom.value='';
+        // }
+
+        // //必有必无数字设置blur
+        // function byBlur(dom){
+        //     if(sxtj['by']==null){ sxtj['by']=dom.value; }
+        // }
+        // function bwBlur(dom){
+        //     if(sxtj['bw']==null){ sxtj['bw']=dom.value; }
+        // }
+
+        // //加和数字设置blur
+        // function jhBlur(dom){
+        //     if(sxtj['jh']==null){ sxtj['jh']=dom.value; }
+        // }
+
+
+
+        // // -------------------------筛选按钮--------------------------　
+        // var numArr;
+        
+        // function sxFunc() {
+        //     // debugger;
+        //     console.log("执行筛选中。。。。。。。")
+        //     numArr=C(arrayS,5);//存储了所有可能的组合
+        //     var errorCnt=0;
+        //     var sxArr=[];
+        //     for(var i=0;i<numArr.length;i++){
+        //         var thisArr=numArr[i];
+        //         var dlVal=true,joVal=true,dxVal=true,zhVal=true,xlVal=true,dcVal=true;
+        //         // add1  必有必无筛选
+        //         var byVal=true,bwVal=true;
+        //         // add1  加和筛选
+        //         var jhVal=true;
+        //         for(var sxz in sxtj){
+        //             // debugger;
+        //             switch(sxz){
+        //                 case 'dl':{
+        //                     var dlReal=sxtj[sxz].slice(0,-2);
+        //                     dlVal=dlHelper(thisArr,dlReal);
+        //                     break;
+        //                 }
+        //                 case 'jo':{
+        //                     var joReal=sxtj[sxz].slice(0,-2);
+        //                     joVal=joHelper(thisArr,joReal);
+        //                     break;  
+        //                 }
+        //                 case 'dx':{
+        //                     var dxReal=sxtj[sxz].slice(0,-2);
+        //                     dxVal=dxHelper(thisArr,dxReal);
+        //                     break;
+        //                 }
+        //                 case 'zh':{
+        //                     var zhReal=sxtj[sxz].slice(0,-2);
+        //                     zhVal=zhHelper(thisArr,zhReal);
+        //                     break;
+        //                 }
+        //                 case 'xl':{
+        //                     xlVal=xlHelper(thisArr);
+        //                     break;
+        //                 }
+        //                 case 'dc':{
+        //                     if(sxtj[sxz]==null||sxtj[sxz].num2==undefined||sxtj[sxz].num2==''||sxtj[sxz].num1==undefined||sxtj[sxz].num1==''){
+        //                         alert('请输入完整的对冲值');
+        //                         return;
+        //                     }
+        //                     else if( isNaN(sxtj[sxz].num1) || isNaN(sxtj[sxz].num2) ){
+        //                         alert('请输入有效的对冲数字');
+        //                         return;
+        //                     } 
+        //                     var n1=sxtj[sxz].num1,n2=sxtj[sxz].num2;
+        //                     var big=('0'+Math.max(n1,n2)).slice(-2),little=('0'+Math.min(n1,n2)).slice(-2);
+        //                     if(big>11 || little<1){alert('请输入1-11区间内的数字');return;}
+        //                     dcVal=dcHelper(thisArr,big,little);
+        //                     break;
+        //                 }
+        //                 //add1 必有必无
+        //                 case 'by':{
+        //                     if(sxtj[sxz]==null||sxtj[sxz]=='')
+        //                         {alert('请输入必有数字');return;}
+        //                     else if( isNaN(sxtj[sxz]) )
+        //                         {alert('请输入有效的必有数字');return;}
+        //                     var n=('0'+sxtj[sxz]).slice(-2);
+        //                     byVal=byHelper(thisArr,n);
+        //                     break;
+        //                 }
+        //                 case 'bw':{
+        //                     if(sxtj[sxz]==null||sxtj[sxz]=='')
+        //                         {alert('请输入必无数字');return;}
+        //                     else if( isNaN(sxtj[sxz]) )
+        //                         {alert('请输入有效的必无数字');return;}
+        //                     var n=('0'+sxtj[sxz]).slice(-2);
+        //                     bwVal=bwHelper(thisArr,n);
+        //                     break;
+        //                 }
+        //                 //add1 加和的情况
+        //                 case 'jh':{
+        //                     if(sxtj[sxz]==null||sxtj[sxz]=='')
+        //                         {alert('请输入和值');return;}
+        //                     else if( isNaN(sxtj[sxz]) )
+        //                         {alert('请输入有效的和值数字');return;}
+        //                     var n=('0'+sxtj[sxz]).slice(-2);
+        //                     jhVal=jhHelper(thisArr,n);
+        //                     break;
+        //                 }
+        //             }
+        //         }
+        //         if(!(dlVal&&joVal&&dxVal&&zhVal&&xlVal&&dcVal&&byVal&&bwVal&&jhVal)){ 
+        //             numArr.splice(i,1);  errorCnt+=1;  i-=1; }
+        //     }
+
+        //     //全部数据都被筛选掉了提醒一下
+        //     if(numArr.length==0){
+        //         // alert('全部数据都被筛选掉了');
+        //         document.getElementById('allNum').innerHTML='全部数据都被筛选掉了';
+        //         return;
+        //     }
+        //     // 输出筛选后的剩余值
+        //     console.log('筛选结束，打印剩余值')
+        //     document.getElementById('allNum').innerHTML='';
+        //     // <ul>
+        //     //  <li></li>
+        //     // </ul>
+        //     document.getElementById('allNum').innerHTML+='<ul>'
+        //     for (i in numArr) {
+        //         var id='li'+ (parseInt(i)+1);
+        //         // document.getElementById('allNum').innerHTML+= (parseInt(i)+1) + '\t\t' +numArr[i].join('-')+"<br>"
+        //         document.getElementById('allNum').innerHTML+= 
+        //             '<li id='+ id + '>' + numArr[i].join('-')+  
+        //             '&nbsp;&nbsp;&nbsp;&nbsp;'+
+        //             '<button onclick=delThisLi('+ id + ')>删除本条</button>'+
+        //             "</li>"
+        //     };
+        //     document.getElementById('allNum').innerHTML+='</ul>'
+
+        //     console.log('打印结束,筛选掉'+errorCnt+"组数据")
+            
+        // }
+
+        // function delThisLi (id) {
+        //     var obj=document.getElementById(id.id);
+        //     if(obj!=null)
+        //         obj.parentNode.removeChild(obj);
+        // }
+
+        // //------------------------筛选函数需要的辅助数值---------------------------------
+        // var lu0=[3,6,9],lu1=[1,4,7,10],lu2=[2,5,8,11];
+        // var zhiL=['01','02','03','05','07','11'],heL=['04','06','08','09','10'];
+        // // var numArr=C(arrayS,5);//存储了所有可能的组合
+        // //------------------------筛选函数需要的辅助数值---------------------------------
+        
+        
+        // // 多路筛选条件函数
+        // function dlHelper(arr,dlReal) {
+        //     var lu0Cnt=0,lu1Cnt=0,lu2Cnt=0;
+        //     for(i in arr){
+        //         if (arr[i]%3==0) lu0Cnt+=1;
+        //         else if (arr[i]%3==1) lu1Cnt+=1;
+        //         else if (arr[i]%3==2) lu2Cnt+=1;
+        //     }
+        //     var type=lu0Cnt.toString()+lu1Cnt.toString()+lu2Cnt.toString();
+        //     return (type==dlReal);
+        // }
+        // function joHelper(arr,joReal) {
+        //     var jiCnt=0,ouCnt=0;
+        //     for(i in arr){
+        //         if (arr[i]%2==0) ouCnt+=1;
+        //         else jiCnt+=1;
+        //     }
+        //     var type=jiCnt.toString()+ouCnt.toString();
+        //     if(type==joReal) return true;
+        //     else if(joReal.indexOf('-')!=-1){
+        //         if(jiCnt==2||jiCnt==3) return true;
+        //     }
+        //     return false;
+        // }
+        // function zhHelper(arr,zhReal) {
+        //     var zhiCnt=0,heCnt=0;
+        //     for(i in arr){
+        //         if (zhiL.indexOf(arr[i])!=-1) zhiCnt+=1;
+        //         else heCnt+=1;
+        //     }
+        //     var type=zhiCnt.toString()+heCnt.toString();
+        //     if(type==zhReal) return true;
+        //     else if(zhReal.indexOf('-')!=-1){
+        //         if(zhiCnt==2||zhiCnt==3) return true;
+        //     }
+        //     return false;
+        // }
+        // function dxHelper(arr,dxReal) {
+        //     var daCnt=0,xiaoCnt=0;
+        //     for(i in arr){
+        //         if (arr[i]<6) xiaoCnt+=1;
+        //         else daCnt+=1;
+        //     }
+        //     var type=daCnt.toString()+xiaoCnt.toString();
+        //     if(type==dxReal) return true;
+        //     else if(dxReal.indexOf('-')!=-1){
+        //         if(daCnt==2||daCnt==3) return true;
+        //     }
+        //     return false;
+        // }
+        // function xlHelper(arr) {
+        //     // 先假定存在相连的数字是有效的，没有相连数字的排除掉
+        //     for (var l=0,r=1; r < arr.length; l++,r++) {
+        //         if(arr[r]-arr[l]==1) return true;
+        //     } 
+        //     return false;
+        // }
+        // function dcHelper(arr,n1,n2) {
+        //     // 两个对冲数只能出一个
+        //     if(arr.indexOf(n1)!=-1 && arr.indexOf(n2)==-1) return true;
+        //     else if(arr.indexOf(n1)==-1 && arr.indexOf(n2)!=-1) return true;
+        //     else return false;
+        // }
+        // // add1 必有必无
+        // function byHelper(arr,n){
+        //     if(arr.indexOf(n)==-1) return false;
+        //     else return true;
+        // }
+        // function bwHelper(arr,n){
+        //     if(arr.indexOf(n)==-1) return true;
+        //     else return false;
+        // }
+
+        // // add1 加和
+        // function jhHelper(arr,sum){
+        //     var allArr=C(arr,2);
+        //     for(var i in allArr){
+        //         var thisSum=parseInt(allArr[i][0])+parseInt(allArr[i][1]);
+        //         if(thisSum==sum) return true;
+        //     }
+        //     //没有这个加和值，返回错误
+        //     return false;
+        // }
+        
+        // // ----------------
+        // // 奇偶筛选条件函数
+        // function joFunc () {
+        //     console.log('奇偶筛选');
+
+        // }
+
+        // // 大小筛选条件函数
+        // function dxFunc () {
+        //     console.log('大小筛选')
+        // }
+
+        // // 质合筛选条件函数
+        // function zhFunc () {
+        //     console.log('质合筛选')
+        // }
+
+
+        // //数字相连筛选
+        // function xlFunc () {
+        //     console.log('数字相连筛选')
+        // }
+
+        // //对冲筛选函数
+        // function dcFunc () {
+        //     console.log('对冲筛选')
+        // }
+        // // ------------------------------------------------------------　
+        
+    </script>
+
+    
+
+
+    
+</body>
+</html>
